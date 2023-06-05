@@ -1,0 +1,20 @@
+body {
+    background-color: azure;
+}
+
+/* .main-header{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: auto;
+} */
+
+.title-heading{
+    width: auto;
+    margin-right: 100%;
+}
+
+.navbar{
+    box-shadow: 0 5px 10px gray;
+}
+

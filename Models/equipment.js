@@ -5,7 +5,8 @@ const equipmentSchema = new Schema( {
     name:String,
     qty:Number,
     avail:String,
-    Status:String
+    type:String,
+    Status:Boolean
 })
 
 module.exports = mongoose.model('equipment',equipmentSchema);

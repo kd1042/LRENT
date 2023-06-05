@@ -30,6 +30,16 @@ const sessionConfig = {
 app.use(session(sessionConfig))
 app.use(flash())
 
+//mongoose(mongo)
+mongoose.connect('mongodb://127.0.0.1:27017/lrent')
+.then(() => {
+    console.log('dbconnected')
+})
+.catch((err) => {
+    console.log("error")
+    console.log(err)
+})
+
 // web routes
 const eqRoute = require('./Routes/equipmentRoute');
 
