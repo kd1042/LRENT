@@ -1,0 +1,109 @@
+<% layout('layouts/boilerplate') %>
+<style>
+    body {
+        background-color: rgb(39, 40, 40);
+    }
+    </style>
+<div class="container-fluid mb-3">
+ <div class="row">
+   
+    <div class="col-9">
+        <h1 class="title-header text-light"><%= events.name %></h1>
+        <hr class="border border-primary border-1 opacity-75">
+        <h2 class="text-primary"><%= events.location %></h2>
+        <h3 class="text-light"><%= events.date %></h3>     
+    </div>
+   
+    <!-- status badge -->
+    <div class="col">
+      <% if(events.status == 'Upcoming'){ %>
+        <div class="card text-bg-primary" style="width: 9rem;" id="statusCard">
+            <div class="card-body">
+                <h5 class="card-title" id="cardText">UPCOMING</h5>
+            </div>
+          </div>
+      <% }else if(events.status == 'Ongoing'){ %>
+        <div class="card text-bg-warning" style="width: 9rem;" id="statusCard">
+          <div class="card-body">
+              <h5 class="card-title" id="cardText">ONGOING</h5>
+          </div>
+        </div>
+      <% }else{ %>
+        <div class="card text-bg-success" style="width: 9rem;" id="statusCard">
+          <div class="card-body">
+              <h5 class="card-title" id="cardText">COMPLETED</h5>
+          </div>
+        </div>
+      <% } %>
+    </div>
+ </div> 
+</div> 
+
+<!-- accordion -->
+<div class="container-fluid">
+
+<div class="row">
+ <div class="col-7 mb-3">
+
+  <% if(events.equipment.length == 0){ %>
+    <h2 class="text-primary">EQUIPMENT</h2>
+    <%- include('../partials/acc') %>
+     <% }else{ %>
+        <h2 class="text-primary">EQUIPMENT</h2>
+        <div class="card card-secondary p-2 w-75">
+          <form action="/check/<%= events._id %>" method="POST">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <% let i = 0 %>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Availability</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (let equip of events.equipment) { let i = 0; %>  
+                  <tr>
+                    <th scope="row"><%= i= i + 1 %></th>
+                    <td ><%= equip.name %></td>
+                    <td><input class="form-control" type="number" name="rqty" id="rqty"></td>
+                    <td> <div class="badge bg-warning ">Conflict</div> </td>
+                  </tr>
+                 <% } %>
+              </tbody>
+            </table>
+          <button class="btn btn-primary">Check Availability</button></form>
+          </div>
+     <% } %>
+
+ </div>
+
+<!-- map -->
+ <div class="col mb-3">
+    <h2 class="text-primary">LOCATION</h2>
+   <!-- <div class="card w-auto ">
+     <iframe class="p-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.68689031035!2d70.
+    73889440585724!3d22.27362502797753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+    1!3m3!1m2!1s0x3959c98ac71cdf0f%3A0x76dd15cfbe93ad3b!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1685970464544!5m2!1sen!2sin" 
+    width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+   </div> -->
+ </div>
+ </div>
+</div>
+
+<!-- update project status -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Status
+  </button>
+  <ul class="dropdown-menu">
+    <form action="/status/upcoming/<%= events._id %>" method="POST"><button class="dropdown-item" id="ubtn">Upcoming</button></form>
+    <form action="/status/Ongoing/<%= events._id %>" method="POST"><button class="dropdown-item" id="obtn">Ongoing</button></form>
+    <form action="/status/complete/<%= events._id %>" method="POST"><button class="dropdown-item" id="cbtn">Completed</button></form>
+  </ul>
+</div>
+
+
+
+

@@ -11,6 +11,7 @@ const LocalStrat = require('passport-local')
 const methodOverride = require('method-override')
 const path = require('path')
 
+
 app.engine('ejs', ejsMate)
 
 app.set('view engine', 'ejs')
@@ -42,8 +43,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/lrent')
 
 // web routes
 const eqRoute = require('./Routes/equipmentRoute');
+const showRoute = require('./Routes/eventRoutes');
+const statusUpdate = require('./Routes/statusScript');
+const checkAvailability = require('./Routes/checAvailability');
 
 app.use('/',eqRoute);
+app.use('/',showRoute);
+app.use('/',statusUpdate);
+app.use('/',checkAvailability);
 
 app.all('*',(req, res, next) =>{
     res.send('page not found')

@@ -1,0 +1,34 @@
+<% layout('layouts/boilerplate') %>
+<style>
+    body{
+        background-color: rgb(39, 40, 40)
+    }
+</style>
+<form action="/details/new" method="POST" class="card p-5">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="productName">
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location" aria-describedby="location">
+      </div>
+
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" name="date" aria-describedby="location">
+      </div>
+      
+      <select class="form-select mb-3" name="status" aria-label="Default select example">
+        <option selected>Set Status</option>
+        <option value="Complete">Complete</option>
+        <option value="Upcoming">Upcoming</option>
+        <option value="Ongoing">Ongoing</option>
+      </select>
+     
+         <div class="mb-3">
+            <button class="btn btn-primary w-25 position-absolute bottom-0 start-50 translate-middle">ADD</button>
+         </div>
+         
+</form>

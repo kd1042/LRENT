@@ -2,10 +2,40 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-     <h1 class="title-heading">EQUIPMENT</h1>
+     <h1 class="title-heading text-light">EQUIPMENT</h1>
      </div>
      <div class="col-md-auto">
      <a href="/equipment/new" class="btn btn-primary">Add</a>
      </div>
   </div>
+</div>
+
+<div class="card card-secondary p-2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% let i = 0 %>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Qty</th>
+        <th scope="col">Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let equipment of Equipments) { let i = 0; %>
+        <tr>
+          <th scope="row"><%= i= i + 1 %></th>
+          <td><%= equipment.name %></td>
+          <td><%= equipment.type %></td>
+          <td><%= equipment.qty %></td>
+          <td><% if(equipment.Status){ %>
+             <div class="badge bg-success h-25">Operational</div>
+          <% } else{ %>
+            <div class="badge bg-warning h-25">Not-Operational</div>
+          <% } %></td>
+        </tr>
+       <% } %>
+    </tbody>
+  </table>
 </div>
