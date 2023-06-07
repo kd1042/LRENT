@@ -46,16 +46,18 @@ const eqRoute = require('./Routes/equipmentRoute');
 const showRoute = require('./Routes/eventRoutes');
 const statusUpdate = require('./Routes/statusScript');
 const checkAvailability = require('./Routes/checAvailability');
+const dashboard = require('./Routes/dashboard');
 
 app.use('/',eqRoute);
 app.use('/',showRoute);
 app.use('/',statusUpdate);
 app.use('/',checkAvailability);
+app.use('/',dashboard);
 
 app.all('*',(req, res, next) =>{
     res.send('page not found')
 })
 
-app.listen(3000, () => {
+app.listen(3000,'192.168.1.6',() => {
     console.log('App Running')
 })

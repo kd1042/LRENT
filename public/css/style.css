@@ -18,10 +18,23 @@ body {
     box-shadow: 0 5px 10px rgb(45, 45, 45);
 }
 
-.navbar a:hover{
-    color: #0d6efd;
+.nav-link{
+    transition-duration: 0.3s;
 }
 
-.navbar a:active{
-    color: #0d6efd
+.nav-link:hover{
+    transform: scale(0.9);
+    color:  #0d6efd;;
+}
+
+.nav-link:active{
+    color:  #0d6efd;;
+}
+
+#scardbtn{
+    transition-duration: 0.3s;
+}
+
+#scardbtn:hover{
+    color: #0d6efd;
 }

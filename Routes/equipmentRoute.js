@@ -5,7 +5,6 @@ const equipment = require('../Models/equipment')
 
 router.get('/equipment', async(req , res) => {
     const Equipments = await equipment.find({});
-    console.log(Equipments)
     res.render('equipment/show', { Equipments })
 })
 
