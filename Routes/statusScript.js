@@ -19,5 +19,4 @@ router.post('/status/complete/:id', async(req,res) =>{
     res.redirect(`/details/${req.params.id}`)
 })
 
-
 module.exports = router;

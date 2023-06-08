@@ -1,5 +1,29 @@
+<script type="module" src="/script/calendar.js" defer></script>
+
 <% layout('layouts/boilerplate') %>
 <div class="container-fluid mb-3">
     <h1 class="text-primary mb-3">DASHBOARD</h1>
     <%- include('../partials/dashcard') %>
-</div>   
+</div>
+
+<hr class="border border-light border-1 rounded opacity-75 mb-3">
+
+<div class="container-fluid mt-2">
+    <div class="row">
+
+        <div class="col w-30"><div class="card" id="calendar-card">
+             <h2 class="text-primary m-2">SCHEDULE</h2>
+            <div class="calendar p-3" id="calendar"></div>
+            <form action="/dashboard/calendar" method="POST">
+                <button class="refresh btn btn-primary">R</button></form>
+        </div>
+    </div>
+     
+    <div class="col"></div>
+
+    </div>
+</div>
+
+<script>
+    const calendarData = `<%- calevents %>`
+</script>

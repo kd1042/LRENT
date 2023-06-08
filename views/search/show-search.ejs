@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="title-header text-light"><%= heading %> Shows</h1>
+
+<div class="card card-secondary p-2">
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr>
+        <% let i = 0 %>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Location</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if(events){ %>
+      <% for (let event of events) { let i = 0; %>
+        <tr>
+          <th scope="row"><%= i= i + 1 %></th>
+          <td><%= event.name %></td>
+          <td><%= event.date %></td>
+          <td><%= event.location %></td>
+          <td>
+            <% if(event.status == 'Complete'){ %>
+                <div class="badge bg-success">Done</div>
+              <% } else if(event.status == 'Ongoing'){ %>
+                <div class="badge bg-warning">Ongoing</div>
+                <% } else{ %>
+                  <div class="badge bg-primary">Upcoming</div>
+                  <% } %>
+          </td>
+
+          <td><a href="http://192.168.1.6:3000/details/<%= event._id %>" class="link-secondary mnu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></a></td>
+
+       <% } %>
+      <% }else{ %>
+         <h1 class="alert alert-warning">No data found for given query</h1>
+        <% } %>
+    </tbody>
+  </table>
+</div>

@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 body {
     background-color: rgb(39, 40, 40);
+    font-family: 'DM Sans', sans-serif;
 }
 
-/* .main-header{
-    display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: auto;
-} */
+.card{
+    border-left: 5px solid #0d6efd;
+    border-radius: 4px;
+}
 
 .title-heading{
     width: auto;
@@ -38,3 +39,19 @@ body {
 #scardbtn:hover{
     color: #0d6efd;
 }
+
+.ucard{
+    border-left: 5px solid #0d6efd;
+    border-radius: 4px;
+}
+
+.ocard{
+    border-left: 5px solid #ffc107;
+    border-radius: 4px;
+}
+
+.ccard{
+    border-left: 5px solid #198754;
+    border-radius: 4px;
+}
+

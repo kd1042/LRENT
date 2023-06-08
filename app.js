@@ -47,12 +47,14 @@ const showRoute = require('./Routes/eventRoutes');
 const statusUpdate = require('./Routes/statusScript');
 const checkAvailability = require('./Routes/checAvailability');
 const dashboard = require('./Routes/dashboard');
+const search = require('./Routes/searchRoutes');
 
 app.use('/',eqRoute);
 app.use('/',showRoute);
 app.use('/',statusUpdate);
 app.use('/',checkAvailability);
 app.use('/',dashboard);
+app.use('/',search);
 
 app.all('*',(req, res, next) =>{
     res.send('page not found')
