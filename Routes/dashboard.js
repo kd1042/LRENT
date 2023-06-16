@@ -1,10 +1,7 @@
 //dashboard Routes
-
 const express = require('express');
 const router = express.Router();
-
 const event = require('../Models/event');
-let calevents = [];
 
 router.get('/', async(req, res) =>{
     const shows = await event.find({})
@@ -15,7 +12,6 @@ router.get('/', async(req, res) =>{
         complete:0
     }
     for(let show of shows){
-      //  calevents.push(show);
        if(show.status == 'Upcoming'){
          counter.upcoming += 1
        }else if(show.status == 'Ongoing'){
@@ -24,8 +20,13 @@ router.get('/', async(req, res) =>{
          counter.complete += 1
        }
     }
-
-    res.render('home/dashboard', { counter, calevents: calevents })
+    res.render('home/dashboard', { counter, shows })
 })
+
+router.get('/calendar-update', async(req, res) => {
+  const Shows = await event.find({});
+  res.json(Shows); 
+})
+
 
 module.exports = router;

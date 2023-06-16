@@ -60,6 +60,6 @@ app.all('*',(req, res, next) =>{
     res.send('page not found')
 })
 
-app.listen(3000,'192.168.1.6',() => {
+app.listen(3000,'192.168.1.4',() => {
     console.log('App Running')
 })

@@ -1,0 +1,26 @@
+<h2 class="text-primary">EQUIPMENT</h2>
+        <div class="card card-secondary p-2 w-auto shadow">
+          <form action="/check/<%= events._id %>" method="POST">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <% let i = 0 %>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Availability</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (let equip of events.equipment) { let i = 0; %>  
+                  <tr>
+                    <th scope="row"><%= i= i + 1 %></th>
+                    <td ><%= equip.name %></td>
+                    <td><%= equip.qty  %></td>
+                    <td> <div class="badge bg-warning ">Conflict</div> </td>
+                  </tr>
+                 <% } %>
+              </tbody>
+            </table>
+          <button class="btn btn-primary">Check Availability</button></form>
+          </div>

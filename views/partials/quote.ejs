@@ -1,0 +1,29 @@
+<div class="quote" id="quote">
+<h2 class="text-primary mb-3">Quote</h2>
+        <div class="card card-secondary mb-3 p-2 w-auto shadow" >
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <% let i = 0 %>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (let equip of events.equipment) { i += 1 %>  
+                  <tr>
+                    <th scope="row"><%= i %></th>
+                    <td ><%= equip.name %></td>
+                    <td><%= equip.qty  %></td>
+                    <td>  </td>
+                  </tr>
+                 <% } %>
+              </tbody>
+            </table>
+          </div>
+          </div>
+          <div class="container-fluid">
+            <button class="btn btn-secondary" id="pbtn">Get</button>
+          </div>

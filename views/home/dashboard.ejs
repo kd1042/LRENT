@@ -1,4 +1,10 @@
-<script type="module" src="/script/calendar.js" defer></script>
+<link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+
+<script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/script/calendar.js" defer></script>
 
 <% layout('layouts/boilerplate') %>
 <div class="container-fluid mb-3">
@@ -8,22 +14,16 @@
 
 <hr class="border border-light border-1 rounded opacity-75 mb-3">
 
-<div class="container-fluid mt-2">
-    <div class="row">
-
-        <div class="col w-30"><div class="card" id="calendar-card">
-             <h2 class="text-primary m-2">SCHEDULE</h2>
-            <div class="calendar p-3" id="calendar"></div>
-            <form action="/dashboard/calendar" method="POST">
-                <button class="refresh btn btn-primary">R</button></form>
-        </div>
-    </div>
-     
-    <div class="col"></div>
+<div class="container-fluid mb-3 w-50">
+ <div class="row">
+  <div class="col">
+    <div class="card p-2">
+  
+      <%- include('../partials/dashboard/cal-nav') %>
+        <div id="calendar" class="p-2" style="height: 600px; width: auto;"></div>
 
     </div>
+
+  </div>
+ </div>
 </div>
-
-<script>
-    const calendarData = `<%- calevents %>`
-</script>
